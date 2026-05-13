@@ -1,22 +1,211 @@
- Hệ thống Phát hiện Tin giả  bằng Qwen2.5-1.5B kết hơp MBert
-> Mô hình Ngôn ngữ Lớn (LLM) tinh chỉnh cho bài toán Phân loại Văn bản Nhị phân trên tập dữ liệu ViFactCheck.**
+---
+base_model: unsloth/qwen2.5-1.5b-instruct-unsloth-bnb-4bit
+library_name: peft
+pipeline_tag: text-generation
+tags:
+- base_model:adapter:unsloth/qwen2.5-1.5b-instruct-unsloth-bnb-4bit
+- lora
+- sft
+- transformers
+- trl
+- unsloth
+---
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Unsloth](https://img.shields.io/badge/Accelerated%20by-Unsloth-orange)](https://github.com/unslothai/unsloth)
+# Model Card for Model ID
 
-Dự án này tập trung vào việc nghiên cứu và ứng dụng Mô hình Ngôn ngữ Lớn (LLM) để nhận diện tin tức giả mạo trong ngữ cảnh tiếng Việt.Đối chứng so sánh ngữ cảnh giữa 2 mô hình Encoder và Decoder đại diện như mBERT và Qwen2.5-1.5B-Instruc sử dụng kỹ thuật tinh chỉnh nhằm tăng cường khả năng đọc hiểu ngữ cảnh dài và lập luận từ vựng.
+<!-- Provide a quick summary of what the model is/does. -->
 
 
-📊 Bộ dữ liệu (Dataset)
-Nguồn: ViFactCheck.
-Cấu trúc được chuyển đổi sang định dạng hội thoại `ChatML` để phù hợp với kiến trúc của mô hình Instruct.
-Tiền xử lý Xử lý triệt để sự chênh lệch số lượng mẫu giữa hai nhãn trước khi đưa vào huấn luyện.
-Hiệu năng
 
-| Mô hình | Accuracy | Precision | Recall | F1-Score |
-| mBERT  | 76.02% | ~54.00% | ~44.00% | 48.70% |
-| Qwen2.5-1.5B | 69,95% |50,56%| 67,66% | 57,87%|
+## Model Details
 
-pip install "unsloth[colab-new] @ git+[https://github.com/unslothai/unsloth.git](https://github.com/unslothai/unsloth.git)"
-pip install --no-deps "xformers<0.0.27" "trl<0.9.0" peft accelerate bitsandbytes
+### Model Description
+
+<!-- Provide a longer summary of what this model is. -->
+
+
+
+- **Developed by:** [More Information Needed]
+- **Funded by [optional]:** [More Information Needed]
+- **Shared by [optional]:** [More Information Needed]
+- **Model type:** [More Information Needed]
+- **Language(s) (NLP):** [More Information Needed]
+- **License:** [More Information Needed]
+- **Finetuned from model [optional]:** [More Information Needed]
+
+### Model Sources [optional]
+
+<!-- Provide the basic links for the model. -->
+
+- **Repository:** [More Information Needed]
+- **Paper [optional]:** [More Information Needed]
+- **Demo [optional]:** [More Information Needed]
+
+## Uses
+
+<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+
+### Direct Use
+
+<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
+
+[More Information Needed]
+
+### Downstream Use [optional]
+
+<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
+
+[More Information Needed]
+
+### Out-of-Scope Use
+
+<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
+
+[More Information Needed]
+
+## Bias, Risks, and Limitations
+
+<!-- This section is meant to convey both technical and sociotechnical limitations. -->
+
+[More Information Needed]
+
+### Recommendations
+
+<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
+
+Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.
+
+## How to Get Started with the Model
+
+Use the code below to get started with the model.
+
+[More Information Needed]
+
+## Training Details
+
+### Training Data
+
+<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
+
+[More Information Needed]
+
+### Training Procedure
+
+<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
+
+#### Preprocessing [optional]
+
+[More Information Needed]
+
+
+#### Training Hyperparameters
+
+- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
+
+#### Speeds, Sizes, Times [optional]
+
+<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
+
+[More Information Needed]
+
+## Evaluation
+
+<!-- This section describes the evaluation protocols and provides the results. -->
+
+### Testing Data, Factors & Metrics
+
+#### Testing Data
+
+<!-- This should link to a Dataset Card if possible. -->
+
+[More Information Needed]
+
+#### Factors
+
+<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
+
+[More Information Needed]
+
+#### Metrics
+
+<!-- These are the evaluation metrics being used, ideally with a description of why. -->
+
+[More Information Needed]
+
+### Results
+
+[More Information Needed]
+
+#### Summary
+
+
+
+## Model Examination [optional]
+
+<!-- Relevant interpretability work for the model goes here -->
+
+[More Information Needed]
+
+## Environmental Impact
+
+<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
+
+Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
+
+- **Hardware Type:** [More Information Needed]
+- **Hours used:** [More Information Needed]
+- **Cloud Provider:** [More Information Needed]
+- **Compute Region:** [More Information Needed]
+- **Carbon Emitted:** [More Information Needed]
+
+## Technical Specifications [optional]
+
+### Model Architecture and Objective
+
+[More Information Needed]
+
+### Compute Infrastructure
+
+[More Information Needed]
+
+#### Hardware
+
+[More Information Needed]
+
+#### Software
+
+[More Information Needed]
+
+## Citation [optional]
+
+<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
+
+**BibTeX:**
+
+[More Information Needed]
+
+**APA:**
+
+[More Information Needed]
+
+## Glossary [optional]
+
+<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
+
+[More Information Needed]
+
+## More Information [optional]
+
+[More Information Needed]
+
+## Model Card Authors [optional]
+
+[More Information Needed]
+
+## Model Card Contact
+
+[More Information Needed]
+### Framework versions
+
+- PEFT 0.19.1
+- PEFT 0.18.1
