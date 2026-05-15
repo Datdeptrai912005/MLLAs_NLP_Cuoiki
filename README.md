@@ -1,3 +1,6 @@
+# Link Tham Khao Model
+https://drive.google.com/drive/folders/1UDSC9ijdSVVOWwTLilfLPNaK9XiztXok?usp=drive_link
+https://drive.google.com/drive/folders/10v0p92VI8HN__nVCb4QXiHb8-YFxA6VR?usp=drive_link
 ---
 base_model: unsloth/qwen2.5-1.5b-instruct-unsloth-bnb-4bit
 library_name: peft
